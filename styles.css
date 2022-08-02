@@ -2,3 +2,25 @@ div.outer {
   display: flex;
   justify-content: center;
 }
+div.inner{
+  background-color: rgb(203, 204, 204);
+  width: 40%;
+  border: solid black 2px;
+  border-radius: 3px;
+}
+p {
+  margin-top: 0px;
+  color: black;
+}
+h1 {
+max-height: 35px;
+color: rgb(21, 100, 33);
+background-color: #ededed;
+margin-top: 0%;
+border-bottom: solid black 1px;
+}
+span {
+  float: right;
+  margin-top: 30px;
+  color: coral;
+}
