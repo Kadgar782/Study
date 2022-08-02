@@ -14,6 +14,19 @@ const createdH1 = createHTML( createdElements[0], divInner);
 const createdParagraph = createHTML( createdElements[1],createdH1 );
 const createdSpan = createHTML( createdElements[2], createdParagraph  );
 
+//Json
+
+const requestURL  = "https://jsonplaceholder.typicode.com/posts";
+const request = new XMLHttpRequest();
+request.open("GET", requestURL);
+request.responseType = "json";
+request.send();
+
+request.onload = function() {
+   const usersInfo = request.response;
+   console.log(usersInfo);
+  
+ }
 
 
 // function elementFromHTML(html) {
