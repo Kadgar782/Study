@@ -1,21 +1,3 @@
-//creating HTML elements
-
-const createdElements = [["h1"], ["p"], ["span"]];
-
-function createHTML (typeOfCreatedElement, locationForCreatedElement) {
-
-  const createdElement = document.createElement(typeOfCreatedElement);
-
-  locationForCreatedElement.appendChild( createdElement );
-  createdElement.innerHTML =  typeOfCreatedElement;
-
-  return createdElement;
-}
-
-const divInner = document.getElementsByClassName("inner")[0];
-const createdH1 = createHTML( createdElements[0], divInner);
-const createdParagraph = createHTML( createdElements[1],createdH1);
-const createdSpan = createHTML( createdElements[2], createdParagraph);
 
 //Json
 
@@ -29,6 +11,18 @@ const createdSpan = createHTML( createdElements[2], createdParagraph);
     console.log(usersInfo)
   });
 
+//creating HTML elements
+
+function createPost (post) {
+   let post = [usersInfo];
+
+   `
+<div class="inner">
+  <h1>${usersInfo.title}</h1>
+   <p>${usersInfo.body}</p>
+   <span>${usersInfo.userId}</span>
+`
+}
 
 //alternative Json
 
