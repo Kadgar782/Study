@@ -10,9 +10,10 @@
 
   
     for (let post of JData) {
-      const container = document.getElementsByClassName("inner")[0];
+      const container = document.getElementsByClassName("outer")[0];
       const resultedPost = createPost(post);
       const postWrapper = document.createElement("div");
+      postWrapper.classList.add("inner");
       postWrapper.innerHTML = resultedPost;
       container.appendChild(postWrapper);
   } 
@@ -26,8 +27,5 @@
     return  `
     <h1>${post.title}</h1>
     <p>${post.body}<span>${post.userId}</span></p>
-    
   `
 }
-
-
