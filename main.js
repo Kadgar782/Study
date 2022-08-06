@@ -1,62 +1,33 @@
-
 //Json
-
 
  fetch("https://jsonplaceholder.typicode.com/posts")
   .then((response) => {
     return response.json();
   })
   .then((data) => {
-    const usersInfo = data;
-    console.log(usersInfo)
-  });
+    const JData = data;
+    console.log(JData);
 
+  
+    for (let post of JData) {
+      const container = document.getElementsByClassName("inner")[0];
+      const resultedPost = createPost(post);
+      const postWrapper = document.createElement("div");
+      postWrapper.innerHTML = resultedPost;
+      container.appendChild(postWrapper);
+  } 
+ } 
+);
+
+  
 //creating HTML elements
 
-function createPost (post) {
-   let post = [usersInfo];
-
-   `
-<div class="inner">
-  <h1>${usersInfo.title}</h1>
-   <p>${usersInfo.body}</p>
-   <span>${usersInfo.userId}</span>
-`
+  function createPost (post) {
+    return  `
+    <h1>${post.title}</h1>
+    <p>${post.body}<span>${post.userId}</span></p>
+    
+  `
 }
-
-//alternative Json
-
- // const requestURL  = "https://jsonplaceholder.typicode.com/posts";
- // const request = new XMLHttpRequest();
- // request.open("GET", requestURL);
- // request.responseType = "json";
- // request.send();
-
- // request.onload = function() {
- //    const usersInfo = request.response;
- //    console.log(usersInfo);
- //  }
-
-
-//Alternative createdElement
-
-
- // function elementFromHTML(html) {
- //    const template = document.createElement("template"); 
-
- //    template.innerHTML = html.trim();
-
- //    return template.content.firstElementChild;
-
- // }
-
- //   const thread = elementFromHTML (`
- //   <div class="container">
- //   <h1>Заголовок</h1>
- 
- //   <p>а</p>
- //   <p class="userID">4564</p>
- //   </div>
- //   `)
 
 
