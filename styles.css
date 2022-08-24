@@ -28,3 +28,10 @@ span {
   color: coral;
   padding-right: 8px;
 }
+.Avatar {
+    float: left;
+    max-width: 45px;
+    max-height: 15px;
+    padding-top:2px;
+    padding-right: 3px;
+}
