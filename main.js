@@ -8,17 +8,25 @@ async function loadPage() {
 // Gettinf Photos
  let responsePhotos = await fetch ("https://jsonplaceholder.typicode.com/photos");
  let photos = await responsePhotos.json();
+// Getting Comments
+ let responseComments = await fetch ("https://jsonplaceholder.typicode.com/comments");
+ let comments = await responseComments.json();
 //Add Avatar
 const mappedPosts = posts.map((p) => {
   const avatars = photos.find((u) => u.id === p.userId); // userId в постах 
+//Add Comments
+  const commentsInPost = comments.find((u) => u.id === p.userId);
+
 // Changing ID
   const createdBy = users.find((u) => u.id === p.userId);
   return {
     ...p, 
+    commentsInPost,
     avatars,
     userId: createdBy ? createdBy.username : "Unknown user",
   }
 });
+console.log(mappedPosts)
 
   //Creating Post
   for (let post of mappedPosts) {
@@ -59,7 +67,8 @@ function createPost(post) {
     <p>${post.body}<span>${post.userId}<img class="Avatar" src=${post.avatars.thumbnailUrl}></span></p>
     <button class="accordion">Comments</button>
       <div class="panel">
-        <p>Lorem ipsum...</p>
+        <p>${post.commentsInPost.body}<span>${post.commentsInPost.name}<img class="Avatar" src=${post.avatars.thumbnailUrl}></span></p></p>
+        
       </div>
   `;
 }
